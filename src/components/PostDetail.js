@@ -3,11 +3,10 @@ import { StyleSheet, Text, View, Image, WebView } from "react-native";
 
 export class PostDetail extends Component {
   render() {
-    console.log(this.props.navigation.state.params);
     return (
 
       <WebView
-        source={{uri: this.props.navigation.state.params.item.data.url}}
+        source={{uri: `https://www.reddit.com${this.props.navigation.state.params.item.data.permalink}`}}
         style={{marginTop:20}}
       />
     )
