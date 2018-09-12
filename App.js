@@ -1,8 +1,8 @@
 import React from "react";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
-import { apiMiddleware, reducer } from "./redux";
-import Navigator from "./Navigator";
+import { apiMiddleware, reducer } from "./src/redux";
+import Navigator from "./src/navigation/Navigator";
 
 const store = createStore(reducer, {}, applyMiddleware(apiMiddleware));
 store.dispatch({ type: "GET_POSTS_DATA" });
