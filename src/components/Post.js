@@ -25,8 +25,8 @@ export default class Post extends Component {
           ).fromNow()}`}</Text>
           <Text style={styles.title}>{`${data.title}`}</Text>
           <View style={styles.lower}>
-            <Text>{`${data.author_fullname}`}</Text>
-            <Text>{`${data.score} points`}</Text>
+            <Text style={{marginRight:10}}>{`${data.author_fullname}`}</Text>
+            <Text style={{marginRight:10}}>{`${data.score} points`}</Text>
             <Text>{`${data.num_comments} comments`}</Text>
           </View>
         </View>
@@ -53,11 +53,11 @@ const styles = StyleSheet.create({
   lower: {
     alignSelf: "flex-end",
     flex: 1,
+    marginTop: 10,
     flexDirection: "row",
-    justifyContent: "center",
+    justifyContent: "flex-start",
     alignItems: "stretch",
-    flexWrap: "wrap",
-    width: 200
+    width: "100%"
   },
   upper: {
     width: "100%",
