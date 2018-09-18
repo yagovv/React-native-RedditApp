@@ -60,7 +60,7 @@ export default class Posts extends Component {
           >
             <FlatList
               data={posts}
-              renderItem={({ item }) => <Post item={item} />}
+              renderItem={({ item }) => <Post item={item} navigation={this.props.navigation}/>}
               keyExtractor={(item, index) => index.toString()}
             />
           </ScrollView>
