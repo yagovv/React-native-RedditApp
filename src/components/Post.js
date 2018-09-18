@@ -1,16 +1,31 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 
 const moment = require("moment");
 
 export default class Post extends Component {
   render() {
-    const data = this.props.item.data;
+    const { data } = this.props.item;
     const dateCreation = moment.unix(data.created_utc);
     return (
-      <View style={styles.container}>
+      <TouchableOpacity
+        onPress={() =>
+          this.props.navigation.navigate("postDetailRoute", {
+            item
+          })
+        }
+        style={{
+          height: 200,
+          backgroundColor: "steelblue",
+          flex: 1,
+          flexDirection: "column",
+          justifyContent: "left",
+          flexWrap: "wrap",
+          alignItems: "flex-start"
+        }}
+      >
         <Image
-          style={{ width: 50, height: 50 }}
+          style={{ width: 100, height: 100 }}
           source={{ uri: this.props.item.data.thumbnail }}
         />
 
@@ -21,13 +36,14 @@ export default class Post extends Component {
           <Text>{`${data.score} points`}</Text>
           <Text>{`${data.num_comments} comments`}</Text>
         </View>
-      </View>
+      </TouchableOpacity>
     );
   }
 }
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    flexDirection: row,
   },
   lower: {
     flex: 1
